@@ -4,4 +4,37 @@ block vars
   - const page = "top"
 
 block content
-  #app
+  figure.hero
+    img(src="./img/room.jpg", alt="快適な室内空間")
+
+  h1(class=`${ page }`) Best place to visit in the world
+
+  p
+    img(src="img/circle.svg", alt="")
+    br
+    a(href="#") 空間を彩る多彩なアイテム
+
+  section
+  
+    h2 RECENT POSTS
+
+    article
+      a(href="")
+        figure
+          img(src="img/note.jpg", alt="")
+        h3 スケッチが楽しくなるノート
+    article
+      a(href="#")
+        figure
+          img(src="img/plant.jpg", alt="")
+        h3 緑のアクセントならこれ
+    article
+      a(href="#")
+        figure
+          img(src="img/items.jpg", alt="")
+        h3 小物と飾り棚の組み合わせ
+    article
+      a(href="#")
+        figure
+          img(src="img/chair.jpg", alt="")
+        h3 居心地がいい部屋にあるもの

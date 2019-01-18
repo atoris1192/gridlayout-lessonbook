@@ -1,0 +1,21 @@
+@charset "UTF-8"
+
+:root {
+  --logo: #555d6b;
+  --nav: #666666;
+  --hover: #ef9505;
+  --tableHead: #555d6b;
+  --tableData: #e8eef9;
+}
+* {
+  margin: 0;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+body {
+  font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}

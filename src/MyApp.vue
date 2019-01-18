@@ -1,8 +1,4 @@
 <template lang="pug">
-  div
-    p {{ message }}
-    button(@click="reverseMessage") Reverse
-    input(v-model="message")
 </template>
 
 <style>
