@@ -19,3 +19,64 @@ body {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 
+    100px
+    auto
+    auto
+    auto
+    100px;
+  row-gap: 30px;
+  gap: 30px 0;
+  & > * {
+    grid-column: 2 / -2; // コンテナ直下すべて
+  }
+}
+
+header {
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+  a {
+    text-decoration: none;
+    color: var(--logo);
+  }
+}
+nav {
+  grid-row: 1;
+  justify-self: center;
+  align-self: end;
+  ul {
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0 30px;
+    
+  }
+  li {
+
+  }
+  a {
+    text-decoration: none;
+    color: var(--nav);
+  }
+}
+footer {
+  grid-row: 5;
+}
+
+.top {
+  .hero {
+    grid-row: 2 / span 2;
+  }
+  h1 {
+    grid-row: 2;
+  }
+  p {
+    grid-row: 3;
+  }
+}
