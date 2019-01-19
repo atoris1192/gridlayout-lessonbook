@@ -1,0 +1,24 @@
+extends _layout
+block vars
+  - const title = 'post01'
+  - const page = 'post'
+block content
+
+  article(class=`${ page }`)
+    h1 スケッチが楽しくなるノート
+
+    time(datetime="2020-07-25")
+      i.far.fa-clock
+      | 2020-07-25
+
+    figure
+      img(src="img/note.jpg", alt="いろいろなスケッチを書き込んだノート")
+
+    p 楽しい文房具に囲まれていると、それだけで仕事や勉強にもやる気が出てきます。最近のお気に入りは、白地のノートです。
+
+    p 好きなことを自由に書き込むことができるので、ちょっとしたスケッチやメモ書きも楽しくなります。マーカーもよく馴染むので、カラフルな図もきれいに描くことができます。
+
+    p スマホのアプリも便利ですが、たまには紙とペンを使ってみるのもおすすめです。
+
+  include _profile.pug
+    

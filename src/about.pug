@@ -1,0 +1,24 @@
+
+extends _layout
+block vars
+  - const title = 'about'
+  - const page = 'about'
+block content
+  article
+    h1 サイトについて
+
+    p きれいなインテリアやかわいい文房具など、日常の中で見つけたお気に入りのものをまとめているサイトです。
+
+    table
+      tr
+        th サイト名
+        td WAVE
+      tr
+        th 開設日
+        td 2015年4月1日
+      tr
+        th 運営方針
+        td ときどきまったり更新中。最新記事の一覧はトップページに掲載しています。 
+
+  include _profile.pug
+  

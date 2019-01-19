@@ -1,0 +1,25 @@
+
+extends _layout
+block vars
+  - const title = 'contact'
+  - const page = 'contact'
+block content
+  article
+    h1 お問い合わせ
+    p ご意見、ご感想などがありましたら、以下の欄にご記入の上、送信してください。記事に関するご質問などもお気軽にお寄せください。
+
+    form( netilify )
+      p
+        label 名前:
+          input(type="text" name="name" required)
+      p
+        label メールアドレス:
+          input(type="email" name="email")
+      p
+        label コメント:
+          textarea(type="comment")
+      p
+        input(type="submit" value="送信")
+  
+  include _profile.pug
+  
