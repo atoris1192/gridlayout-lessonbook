@@ -34,14 +34,6 @@ body {
   & > * {
     grid-column: 2 / -2; // コンテナ直下すべて
   }
-  &::after { // footer用
-    display: block;
-    content: '';
-    background-color: #eee;
-    grid-column: 1 / -1;
-    grid-row: 5;
-    z-index: -1;
-  }
 }
 
 header {
@@ -51,8 +43,9 @@ header {
   a {
     text-decoration: none;
     color: var(--logo);
-    font-weight: 200;
+    // font-weight: 200;
     font-size: 40px;
+    font-family: 'Raleway', sans-serif;
   }
 }
 nav {
@@ -64,16 +57,12 @@ nav {
     list-style-type: none;
     display: grid;
     grid-auto-flow: column;
-    gap: 0 30px;
-    
-  }
-  li {
-
+    column-gap: 20px;
   }
   a {
     text-decoration: none;
     color: var(--nav);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     &:hover {
       color: var(--hover);
@@ -85,6 +74,15 @@ footer {
   justify-self: center;
   align-self: center;
   font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+.container::after { // footer用 バー
+  display: block;
+  content: '';
+  background-color: #eee;
+  grid-column: 1 / -1;
+  grid-row: 5;
+  z-index: -1;
 }
 
 .top {
@@ -92,48 +90,57 @@ footer {
     grid-column: 1 / -1;
     grid-row: 2 / span 2;
     img {
+      height: 547px; // iPhone8 base
       filter: brightness(70%);
-      vertical-align: bottom;
+      vertical-align: bottom; // 下隙間防止
       z-index: -1;
       object-fit: cover;
       margin-top: -20px;
+      position: relative; // Edge用
     }
   }
-  h1 {
+  h1 { // title
     grid-row: 2;
     justify-self: center;
     align-self: center;
     color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px #444444;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 1.2;
+    font-family: 'Raleway', sans-serif;
   }
-  p {
+  p { // subtitle
     grid-row: 3;
     justify-self: center;
     align-self: center;
     a {
-      display: block;
-      margin-top: 20px;
+      display: inline-block;
+      margin-top: 10px;
       text-decoration: none;
       color: #fff;
       border: 1px solid #FFF;
-      border-radius: 5px;
-      padding: 5px;
+      border-radius: 10px;
+      padding: 10px 40px;
+      background-color: rgba(85, 93, 107, 0.5); // 半透明きれい
       &:hover {
         background-color: var(--hover);
       }
-
+    }
+    img {
+      width: 250px;
     }
   }
-  section {
+  section { // 記事
     grid-row: 4;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px 30px;
+    gap: 20px 10px;
 
     h2 {
+      font-size: 14px;
       grid-column: 1 / -1;
       text-align: center;
     }
