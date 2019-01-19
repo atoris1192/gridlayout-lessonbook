@@ -95,7 +95,7 @@ footer {
       vertical-align: bottom; // 下隙間防止
       z-index: -1;
       object-fit: cover;
-      margin-top: -20px;
+      // margin-top: -20px;
       position: relative; // Edge用
     }
   }
@@ -143,6 +143,9 @@ footer {
       font-size: 14px;
       grid-column: 1 / -1;
       text-align: center;
+    }
+    h3 {
+      font-size: 14px;
     }
     a {
       text-decoration: none;
@@ -216,58 +219,61 @@ article {
   }
 }
 
+
 // pc
 @media (min-width: 768px) {
   .container {
     grid-template-columns: 0.2fr repeat(6, 1fr) 0.2fr;
-    // grid-template-rows: 
-    //   100px
-    //   auto
-    //   auto
-    //   auto
-    //   100px;
-    gap: 30px 20px ;
+    grid-template-rows: 
+      100px
+      auto
+      auto
+      100px;
+    column-gap: 5%;
 
-    header {
-      justify-self: start;
-    }
-    footer {
-    }
-    nav {
-      justify-self: end;
-      align-self: center;
-    }
-    &::after { // footer用
-      grid-column: 2 / -2;
-    }
+  }
+  header {
+    justify-self: start;
+  }
+  nav {
+    justify-self: end;
+    align-self: center;
+  }
+  footer {
+    grid-row: 4;
+  }
+  .container::after { // footer用
+    grid-column: 2 / -2;
+    grid-row: 4;
   }
 
   .top {
     .hero {
       grid-column: 2 / span 6;
-      grid-row: 2 / span 2;
+      grid-row: 2 ;
+      margin-top: -20px;
     }
     h1 {
       grid-column: 2 / span 3;
-      grid-row: 2 / span 2;
+      grid-row: 2 ;
       text-align: center;
-
       font-size: 60px;
-      padding: 20px;
+      max-width: 460px; // 広い画面で間延びしないように
     }
     p {
       grid-column: 5 / span 3;
-      grid-row: 2 / span 2;
+      grid-row: 2;
       img {
-        width: 100%;
+        width: 80%;
+        max-width: 460px;
       }
     }
     section {
-      grid-row: 4;
+      grid-row: 3;
 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px 30px;
+      column-gap: 20px;
 
       h2 {
         grid-column: 1 / -1;
