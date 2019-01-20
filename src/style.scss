@@ -17,7 +17,7 @@ img {
 body {
   font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
   -webkit-text-size-adjust: none;
-  text-size-adjust: none;
+  text-size-adjust: none; // 自動拡大抑制
 }
 
 .container {
@@ -42,7 +42,7 @@ header {
   align-self: center;
   a {
     text-decoration: none;
-    color: var(--logo);
+    color: inherit;
     // font-weight: 200;
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
@@ -153,11 +153,18 @@ footer {
     }
   }
 }
+
+// 記事, about, form共通
 article {
   & > * {
-    padding: 1em 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: block;
   }
-  table {
+  p {
+    line-height: 2;
+  }
+  table { // about
     border-collapse: collapse;
     th, td {
       border: 1px solid #000;
@@ -171,7 +178,7 @@ article {
       background-color: #eee;
     }
   }
-  form {
+  form {  // お問い合わせ
     p {
       margin-bottom: 20px;
     }
@@ -183,29 +190,78 @@ article {
   }
 }
 
-.profile {
+// 記事用
+.post {
+  grid-template-rows:
+    100px
+    auto
+    auto
+    100px;
+
+    article {
+      grid-row: 2;
+      & > * { // 適当な行間を作成
+        // margin-top: 1em;
+        // margin-bottom: 1em;
+        // display: block;
+      }
+    }
+    &::before { // 記事前の仕切りバー
+      content: '';
+      background-color: #eee;
+      height: 2px;
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+    .fa-clock {
+      color: #888888;
+      margin-right: 5px;
+    }
+    .profile { // pickup含む
+      grid-row: 3;
+    }
+    footer {
+      grid-row: 4;
+    }
+    &::after { // footer用
+      display: block;
+      content: '';
+      background-color: #eee;
+      grid-column: 1 / -1;
+      grid-row: 4;
+      z-index: -1;
+    }
+}
+
+// プロフィール用 ピックアップ含む
+.profile { 
   aside {
     text-align: center;
-    border: 1px solid #eee;
+    border: 1px solid #dddddd;
     margin: 30px 0;
-    // padding: 20px 0;
+    padding: 20px;
     h2 {
-      padding: 20px 0;
+      border-bottom: solid 1px #dddddd;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      color: #888888;
+      font-weight: 400;
+      font-family: 'Raleway', sans-serif;
     }
     h3 {
-      padding: 10px;
     }
     p {
-      padding: 10px;
+      font-size: 14px;
     }
     &:first-child img {
         width: 120px;
         height: 120px;
         border-radius: 50%;;
     }
-    ul {
+    ul { // pickup
       padding: 0;
       list-style-type: none;
+      text-align: left;
 
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -284,5 +340,33 @@ article {
         color: #000;
       }
     }
+  }
+  .post {
+    grid-template-rows:  
+      100px
+      auto
+      100px;
+    article {
+      grid-column: 2 / span 4;
+      // img {
+      //   width: 40%;
+      //   float: left;
+      //   margin-right: 1em;
+      // }
+    }
+    .profile {
+      grid-column: 6 / span 2;
+      grid-row: 2;
+    }
+    footer {
+      grid-row: 3;
+    }
+    &::before {
+      margin-top: -20px;
+    }
+  }
+  .container::after { // footer用
+    grid-column: 2 / -2;
+    grid-row: 3;
   }
 }
